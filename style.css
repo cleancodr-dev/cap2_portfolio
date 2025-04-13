@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Kavivanar&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+/*Fonts: Newsreader, Kavivanar, Just another Hand*/
+
+/* ══════ Paper Background ══════ */
+body {
+  background-color: #fdfdfd;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+/* ══════ vertical red Line ══════ */
+body::before {
+  content: '';
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: clamp(5%, 7vw, 7%);
+  width: 2px;
+  height: 100vh;
+  background-color: red;
+}
+
+/* ══════ Grid System for semantic Styling ══════ */
+.stack-container {
+  display: grid;
+  grid-template-columns: 7% 1fr;
+
+  height: fit-content;
+}
+
+.semantic-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 8px;
+  font-family: 'Newsreader';
+  color: rgba(21, 209, 56, 0.7);
+}
+
+.opener {
+}
+
+.closer {
+}
+
+.content-container {
+  padding: 50px 100px 50px 100px;
+  font-family: 'Kavivanar';
+}
+
+/* ══════ Semantic indent (for visuall HTML-Styling ══════ */
+.indent-lv1 {
+  display: inline-block;
+  padding-left: 1.5rem;
+}
+
+.indent-lv2 {
+  display: inline-block;
+  padding-left: 3rem;
+}
+
+.indent-lv3 {
+  display: inline-block;
+  padding-left: 4.5rem;
+}
+
+/* ══════ horizontal Line ══════ */
+.break {
+  content: '';
+  position: relative;
+  bottom: 0px;
+  width: 100vw;
+  height: 2px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(90, 93, 100, 0.3) 20%,
+    rgba(0, 0, 0, 0.1) 64%,
+    rgba(90, 93, 100, 0.3) 75%
+  );
+  opacity: 0.7;
+}
+
+.style-head .content-container {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.semantic-title {
+  position: relative;
+  left: -10%;
+  margin: 0;
+  padding: 20px 0px;
+  transform: rotate(-5deg);
+}
+
+.semantic-title::before {
+  content: 'meta: author/viewport... ';
+  position: absolute;
+  right: 120%;
+  transform: rotate(8deg);
+}
+
+.handwritten {
+  color: #2931337e;
+  font-family: 'Just Another Hand';
+  font-size: 30px;
+  text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+  filter: blur(0.3px);
+}
+
+.logo {
+  display: block;
+  margin: 40px auto 30px auto;
+  height: 140px;
+  width: auto;
+  filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.15));
+  opacity: 0.95;
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 1023px) {
+  .stack-container {
+    display: block;
+  }
+  .semantic-container {
+    display: none;
+  }
+}
