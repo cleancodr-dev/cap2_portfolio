@@ -17,7 +17,6 @@ body {
     linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
   background-size: 19px 19px;
 }
-
 /* ═══ vertical red Line ═══ */
 body::before {
   content: '';
@@ -30,7 +29,6 @@ body::before {
   background-color: #ff0000b3;
   pointer-events: none;
 }
-
 /* ══════ Mobile first Fundament ══════ */
 * {
   box-sizing: border-box;
@@ -42,11 +40,18 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
 body {
   height: 100%;
   position: relative;
   margin: 0;
   padding: 0;
+}
+.style-head,
+.semantic-container,
+.semantic-title,
+.handwritten {
+  display: none;
 }
 
 .stack-container {
@@ -55,20 +60,10 @@ body {
   max-width: 100%;
 }
 
-.semantic-container {
-  display: none;
-}
 .content-container {
-  padding-left: 7%;
-  padding-right: 7%;
+  padding-left: 10%;
+  padding-right: 10%;
   font-family: 'Kavivanar';
-}
-
-.style-head,
-.semantic-container,
-.semantic-title,
-.handwritten {
-  display: none;
 }
 
 /* ══════ horizontal Line ══════ */
@@ -89,16 +84,37 @@ body {
 
 .logo {
   display: block;
-  margin: 40px auto 30px auto;
-  height: 140px;
-  width: auto;
-  filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.15));
+  margin-top: 40px;
+  margin-bottom: 30px;
+  height: auto;
+  width: 100%;
+  max-width: 100%;
   opacity: 0.95;
   mix-blend-mode: multiply;
 }
 
+main .content-container {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+.nav-container {
+  display: flex;
+  justify-content: left;
+  white-space: nowrap;
+  gap: 10px;
+}
+
+footer {
+  text-align: center;
+}
+
 /* ══════ Media query for Displays ══════ */
 @media (min-width: 1024px) {
+  .style-head {
+    display: contents;
+  }
+
   .stack-container {
     display: grid;
     grid-template-columns: 7% 1fr;
@@ -109,62 +125,68 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: 8px;
+    padding-left: 0;
+    padding-right: 0;
     font-family: 'Newsreader';
     color: rgba(21, 209, 56, 0.7);
+    max-width: clamp(8px, 1rem, 7%);
   }
-
-  .style-head {
-    display: contents;
-  }
-
-  .semantic-title,
-  .handwritten {
-    display: block;
-  }
-
-  .content-container {
-    padding: 50px 100px;
-  }
-
-  /* ══════ Semantic indent (for visuall HTML-Styling ══════ */
-  .indent-lv1 {
-    display: inline-block;
-    padding-left: 1.5rem;
-  }
-
-  .indent-lv2 {
-    display: inline-block;
-    padding-left: 3rem;
-  }
-
-  .indent-lv3 {
-    display: inline-block;
-    padding-left: 4.5rem;
-  }
-  .handwritten {
-    color: #2931337e;
-    font-family: 'Just Another Hand';
-    font-size: 30px;
-    text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
-    filter: blur(0.3px);
+  .indent {
+    padding-left: 0.75rem;
   }
   .style-head .content-container {
     padding: 0px;
     display: flex;
     justify-content: center;
   }
+
+  .handwritten {
+    display: block;
+    color: #2931337e;
+    font-family: 'Just Another Hand';
+    font-size: 30px;
+    text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+    filter: blur(0.3px);
+  }
+
   .semantic-title {
+    display: block;
     position: relative;
     left: -10%;
     margin: 0;
     padding: 20px 0px;
     transform: rotate(-5deg);
   }
+
   .semantic-title::before {
     content: 'meta: author/viewport... ';
     position: absolute;
     right: 120%;
     transform: rotate(8deg);
+  }
+
+  nav .content-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  nav .content-container,
+  main .content-container {
+    font-size: 1.2rem;
+  }
+
+  footer .content-container {
+    margin: 25px;
+  }
+}
+
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .closer,
+  .opener,
+  .indent {
+    font-size: 13px;
+  }
+
+  .indent {
+    padding-left: clamp(0.3rem, 2vw, 0.75rem);
   }
 }
