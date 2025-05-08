@@ -112,18 +112,22 @@ footer {
   text-align: center;
 }
 
+footer .content-container {
+  margin: 10px;
+}
+
 .nav-container a {
   border: 2px solid rgba(0, 0, 0, 0.3);
-  border-radius: 40px;
-  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
   background: transparent;
-  font-weight: 700;
+  font-weight: bold;
   font-family: 'Just Another Hand', cursive;
-  font-size: 30px;
+  font-size: 27px;
   text-decoration: none;
   color: #2931337e;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  filter: blur(0.3px);
+  filter: blur(0.1px);
   transition: all 0.2s ease-in-out;
 }
 
